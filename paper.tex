@@ -1,0 +1,120 @@
+%& -shell-escape
+%& -shell-escape
+
+\documentclass{sig-alternate}
+\usepackage[colorlinks=true,urlcolor=black,linkcolor=cyan,citecolor=cyan]{hyperref}
+\usepackage[hyphenbreaks]{breakurl}
+
+\pagenumbering{arabic}
+
+%\usepackage{amsthm}
+
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage[latin1]{inputenc}
+
+\usepackage{url}
+\usepackage{times}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage{latexsym}
+\usepackage{enumerate}
+\usepackage{color}
+\usepackage{booktabs}
+
+\usepackage{pifont}
+\usepackage[nocompress]{cite}
+
+\usepackage{dcolumn}
+\newcolumntype{d}[1]{D{.}{.}{#1}}
+\newcolumntype{.}{D{.}{.}{-1}}
+
+\newcommand{\urlBibTeX}[1]{\url{#1}} %%% needed for URL to print nice
+
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+%\newenvironment{proof}[1][Proof]{\begin{trivlist}
+%\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{definition}[1][Definition]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{example}[1][Example]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{remark}[1][Remark]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newcommand{\nicolasc}{\ding{110}\ding{43}\textcolor{blue}}
+\newcommand{\benjamin}{\ding{110}\ding{43}\textcolor{red}}
+\newcommand{\paul}{\ding{110}\ding{43}\textcolor{green}}
+
+\def\firm#1{Firm~#1}
+\def\good#1{good~#1}
+\def\buy#1{buy-#1}
+\def\decline#1{decline-#1}
+
+%\newcommand{\qed}{\nobreak \ifvmode \relax \else
+%      \ifdim\lastskip<1.5em \hskip-\lastskip
+%      \hskip1.5em plus0em minus0.5em \fi \nobreak
+%      \vrule height0.75em width0.5em depth0.25em\fi}
+
+
+
+
+\begin{document}
+\title{Privacy, Polarization, and Passage of Divisive Laws}%\thanks{This research was supported in part by the National Science Foundation through award CCF-0424422 (TRUST - Team for Research in Ubiquitous Secure Technology).}}
+
+%\author{Anonymous submission}
+%\date{}
+
+\numberofauthors{2} %  in this sample file, there are a *total*
+% of EIGHT authors. SIX appear on the 'first-page' (for formatting
+% reasons) and the remaining two appear in the \additionalauthors section.
+%
+\author{
+% You can go ahead and credit any number of authors here,
+% e.g. one 'row of three' or two rows (consisting of one row of three
+% and a second row of one, two or three).
+%
+% The command \alignauthor (no curly braces needed) should
+% precede each author name, affiliation/snail-mail address and
+% e-mail address. Additionally, tag each line of
+% affiliation/address with \affaddr, and tag the
+% e-mail address with \email.
+%
+% 1st. author
+\alignauthor
+Benjamin Johnson\\
+       %\affaddr{UC Berkeley}\\
+       \email{benjaminejohnson@gmail.com}
+% 2nd. author
+\alignauthor
+Paul Laskowski\\
+       %\affaddr{UC Berkeley}\\
+       \email{paul@ischool.berkeley.edu}
+}
+
+
+\maketitle
+
+\begin{abstract}
+\input{abstract}
+\end{abstract}
+%\mynormality{1.2}
+%\newpage
+\input{intro}
+\input{related}
+\input{model}
+\input{analysis}
+\input{results}
+%\input{numerical}
+\input{concl}
+
+\bibliographystyle{plain}
+\bibliography{local,references}
+
+\end{document}
+% ___END___

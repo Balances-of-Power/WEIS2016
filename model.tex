@@ -1,0 +1,33 @@
+%!TEX root = paper.tex
+%model.tex
+
+\section{Model}
+\label{sec:model} 
+
+For each pair of citizens $$i,j\in\{1,\dots N\},$$ define $$a_{ij}\in [-1,1]$$ to be the affinity of person $i$ for person $j$, or the extent to which person $i$ takes the well-being of person $j$ into account when making decisions, or something similarly concrete-ish.
+
+Given a law $L$ and a citizen $j\in\{1,\dots N\}$, define $$L(j)\in[0,1]$$ to be the probability that the law targets $j$.
+
+Every law $L$ induces a function from the set of all citizens to the interval $[0,1]$ and thus induces a linear ordering of those citizens given by $j_1<j_2$ iff $L(j_1)<L(j_2)$.
+
+
+For a fixed citizen $i$ we may consider $$\cdots a_i \cdots$$ as a row vector which expresses the views of $i$ toward every other citizen.
+We may also consider for a citizen $j$ the column vector $$\begin{tabular}{c}\vdots\\$a_j$\\\vdots\end{tabular}$$ which expresses the views that other citizens have towards them.
+Note that in a fully independent and unbiased society we would have $a_{ii} =1$  for every $i$ and $a_{ij}=0$ for every $i\neq j$.  In this simple case, we would necessarily have $a_{ii}=L(i)$.  That is, each citizen would support a law in proportion to the individual effect that the law has on them
+
+In real-world societies for which citizens are not completely independent -- for example, if they are more socialist, or more polarized, the support of a law also depends on the extent to which it targets other citizens.
+
+Extrapolating from the simple case, let us say that the extent to which citizen $i$ supports a law $L$ is proportional to $$\left<a_i,L\right>$$
+
+Another way to consider this is that the matrix multiplication $$[a_{ij}]L$$ gives a column vector whose $i^{th}$ entry describes the extent to which citizen $i$ supports $L$.
+
+If we order the elements of this vector and graph it on a line, we can see directly from the graph a number of things
+\begin{enumerate}
+\item what percentage supports the law
+\item the extent to which the law is divisive for the society
+\end{enumerate}
+
+How does privacy enter this picture?
+Privacy decreases the law's overall enforceability, and in particular, it makes it harder to enforce the law selectively.
+
+The crux of the analysis will be to show that privacy is especially welfare-enhancing in cases where a society is more polarized.
