@@ -57,5 +57,28 @@ $$\frac{\sum_i S(i)Cr(i)F}{\sum_i S(i)} > \rho$$
 
 
 
-(note: should consider divisive laws in particular...)
 
+\section{A Two-Population Model}
+
+To further explore issues of privacy, we must assume a particular structure for consumer affinity.  In this section, we analyze the special case that there are two types of citizens, labeled 0 and 1.  Type 0 citizens are assumed to form the majority with population $n_0$.  Type 1 citizens form the minority with population $n_1 < n_0$.  Within each group, we assume that all citizens have identical preferences.  The affinity of a citizen of type $i$ for a citizen of type $j$ is labeled $a_ij$.
+
+Given a law $(Cr, S, F)$, we may compute support from consumers of type 0 as follows,
+
+\begin{align}
+L_1(0) &= n_0 a_{00}  L_0(0) + n_1 a_{01}  L_0(1) \\
+&= B - n_0 a_{00}S(0)Cr(0)FP - n_1 a_{01}  S(1)Cr(1)FP
+\end{align}
+
+We can write this more simply by letting $b_{ij} = n_j a_{ij}$,
+
+\begin{align}
+L_1(0) = B - b_{00}S(0)Cr(0)FP - b_{01}  S(1)Cr(1)FP
+\end{align}
+
+Similarly for type 1 consumers,
+
+\begin{align}
+L_1(1) = B - b_{10}S(0)Cr(0)FP - b_{11}  S(1)Cr(1)FP
+\end{align}
+
+For exposition, we make the additional assumption that $b_{00} > b_{01}$ and $b_{11} > b_{10}$, meaning that citizens care more about what happens to a representative individual of their own type than of the other type.
