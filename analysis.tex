@@ -60,25 +60,44 @@ $$\frac{\sum_i S(i)Cr(i)F}{\sum_i S(i)} > \rho$$
 
 \section{A Two-Population Model}
 
-To further explore issues of privacy, we must assume a particular structure for consumer affinity.  In this section, we analyze the special case that there are two types of citizens, labeled 0 and 1.  Type 0 citizens are assumed to form the majority with population $n_0$.  Type 1 citizens form the minority with population $n_1 < n_0$.  Within each group, we assume that all citizens have identical preferences.  The affinity of a citizen of type $i$ for a citizen of type $j$ is labeled $a_ij$.
+To further explore issues of privacy, we must assume a particular structure for consumer affinity.  In this section, we analyze the special case that there are two types of citizens, labeled 0 and 1.  Type 0 citizens are assumed to form the majority with population $n_0$.  Type 1 citizens form the minority with population $n_1 < n_0$.  Within each group, we assume that all citizens have identical preferences.  The affinity of a citizen of type $i$ for a citizen of type $j$ is labeled $a_ij$.  For exposition, we make the additional assumption that $a_{00} > a_{01}$ and $a_{11} > a_{10}$, meaning that citizens care more about what happens to an individual of their own type than one of the other type.
 
-Given a law $(Cr, S, F)$, we may compute support from consumers of type 0 as follows,
-
-\begin{align}
-L_1(0) &= n_0 a_{00}  L_0(0) + n_1 a_{01}  L_0(1) \\
-&= B - n_0 a_{00}S(0)Cr(0)FP - n_1 a_{01}  S(1)Cr(1)FP
-\end{align}
-
-We can write this more simply by letting $b_{ij} = n_j a_{ij}$,
+Given a law $(Cr, S, F)$, let $p_0 = Cr(0)S(0)F$ be the fraction of the majority that are punished, and let $p_1 = Cr(1)S(1)F$ be the fraction of the minority that are punished.  We may compute support from consumers of type 0 as follows,
 
 \begin{align}
-L_1(0) = B - b_{00}S(0)Cr(0)FP - b_{01}  S(1)Cr(1)FP
+L_1&(0) = n_0 a_{00}  L_0(0) + n_1 a_{01}  L_0(1) \\
+&= \beta t - n_0 a_{00}p_0 P - n_1 a_{01}  p_1 P \\
+&= \beta \left[ \frac{n_0 p_0}{n_0 + n_1}   + \frac{n_1 p_1}{n_0 + n_1} \right]  - n_0 a_{00}p_0 P - n_1 a_{01}  p_1 P \\
+&= \left[  \frac{\beta n_0}{n_0 + n_1} - n_0 a_{00}P  \right]p_0 + \left[ \frac{\beta n_1}{n_0 + n_1} -  n_1 a_{01}P \right] p_1
 \end{align}
+
+
 
 Similarly for type 1 consumers,
 
 \begin{align}
-L_1(1) = B - b_{10}S(0)Cr(0)FP - b_{11}  S(1)Cr(1)FP
+L_1(1) = 
 \end{align}
 
-For exposition, we make the additional assumption that $b_{00} > b_{01}$ and $b_{11} > b_{10}$, meaning that citizens care more about what happens to a representative individual of their own type than of the other type.
+
+
+A law will have majority support if and only if $L_1(0) \geq 0$.  This can be written as,
+
+\begin{align}
+\beta F\left[ n_0 S(0)Cr(0) + n_1 S(1)Cr(1)\right]/(n_0 + n_1)  - b_{00}S(0)Cr(0)FP - b_{01}  S(1)Cr(1)FP > 0 \\
+\beta \left[ \frac{n_0}{n_0 + n_1}  S(0)Cr(0) + \frac{n_1}{n_0 + n_1} S(1)Cr(1)\right] - b_{00}S(0)Cr(0)P - b_{01}  S(1)Cr(1)P > 0 \\
+[  \frac{\beta n_0}{n_0 + n_1} - b_{00}P  ]S(0)Cr(0) + [ \frac{\beta n_1}{n_0 + n_1} -  b_{01}P ] S(1)Cr(1) 
+\end{align}
+
+Figure \paul{blah} allows us to plot a law according to its effects on the majority and the minority.  The x-axis represents the fraction of type 0 citizens that are punished according to the law.  The y-axis represents the fraction of type 1 citizens that are punished according to the law.  In our model, the text of the law specifies the maximum fraction of each type of citizen that can be punished, $Cr(1)$ and $Cr(2)$, which occurs when $F=1$ and everyone is searched.  This is represented by the outermost rectangle in the Figure, labeled A.
+
+The region under line B represents the set of possible laws that have majority support.  Notice that the maximum number of minority citizens affected by a potential law is greater than the maximum number of majority citizens.  Line B may intersect the maximum rectangle, A, or it may not.  For this exposition, we draw line A as though the text of the law limits the maximum number of minority types that may be punished under a law with majority support.
+
+Vector C, which is normal to Line B and has magnitude $(-b_{00}, -b_{01})$, represents the gradient of type 0 support.  This is the direction along which support by the majority increases at the fastest rate.  Notice that our ordering conditions imply the slope of this line is less than 1.
+
+Vector D, which has magnitude $(-b_{10}, -b_{11})$ similarly represents the gradient of type 1 support.  Our order conditions imply the slope of this line is greater than 1.
+
+Vector E, 
+
+
+
