@@ -24,7 +24,9 @@ Our model allows us to compare four types of privacy, two of which are technolog
 
 \subsection{Attribute Privacy}
 
-Attribute privacy is the notion that a person can conceal personal characteristics, which authorities may use to identify them as someone likely to commit a crime.  In the extreme case, individuals may be fully anonymized, which we express by saying that $S(i)$ is a constant.  In less extreme cases, we may place restrictions on $S(i)$.
+Attribute privacy is the notion that a person can conceal personal characteristics, which authorities may use to identify them as someone likely to commit a crime.  In the extreme case, individuals may be fully anonymized, which we express by saying that $S(i)$ is a constant. 
+
+$$S(i)=S$$ In less extreme cases, we may place restrictions on $S(i)$.
 
 For a given text of a law, which specifies $Cr(i)$, restrictions on $S(i)$ may prevent a majority from emerging to support the law.  This is a simple consequence of the fact that restrictions on $S(i)$ translate into restrictions on $L_0(i)$ and $L_1(i)$.  In practice, we may expect authorities to restrict searches to a minority of the population, thereby ensuring that $L_0(i)$ is positive for a majority of individuals.
 
@@ -32,15 +34,17 @@ An example in which individuals are fully or nearly anonymized is the case in wh
 
 \subsection{Search Privacy}
 
-Search Privacy is the idea that a citizen may use technology to prevent the discovery of evidence in the event that she is searched.  We represent this as a decrease in the parameter, $F$, representing the chance that evidence is found when a citizen breaking the law is searched.  In our specification, $F$ appears in both components of $L_0$ so this scales $L_0(i)$ equally for all $i$.  This also implies that $L_1(i)$ is scaled equally for all $i$, which means that the number of citizens supporting the law is unaffected.
+Search Privacy is the idea that a citizen may use technology to prevent the discovery of evidence in the event that she is searched.  We represent this as a decrease in the parameter, $F$, 
+$$F<\lambda$$
+representing the chance that evidence is found when a citizen breaking the law is searched.  In our specification, $F$ appears in both components of $L_0$ so this scales $L_0(i)$ equally for all $i$.  This also implies that $L_1(i)$ is scaled equally for all $i$, which means that the number of citizens supporting the law is unaffected.
 
 Although search privacy will not disrupt a majority of individuals that support a law, it will affect welfare, scaling it towards zero.  Search privacy may therefore be welfare benefiting in the case of divisive laws for which total welfare is decreased.
 
 \subsection{Search Quantity Privacy}
 
-Our first legal notion of privacy corresponds to the idea that searches should not be widespread in a society.  This is exemplified by a recent case before the US supreme court, Utah v. Strieff.  This case revolves around the extent to which the Fourth Amendment restricts police from searching citizens.  Detective Douglas Fackrell stopped Edward Strieff outside a house he was surveilling and asked for identification.  When he discovered that Strieff had an outstanding warrant for a minor traffic violation, he proceeded to search him and cound methamphetamine in Strieff's pockets.  According to the so-called exclusionary rule, evidence gained in violation of the Fourth Amendment is generally not permitted in court, but it is unclear whether the rule applies when a warrant is found after an improper detainment.  During oral argument, justice Sonya Sotomayor asked ?what stops us from becoming a police state and just having the police stand on the corner down here and stop every person, ask them for identification, put it through?and if a warrant comes up, searching them?"
+Our first legal notion of privacy corresponds to the idea that searches should not be widespread in a society.  This is exemplified by a recent case before the US supreme court, Utah v. Strieff.  This case revolves around the extent to which the Fourth Amendment restricts police from searching citizens.  Detective Douglas Fackrell stopped Edward Strieff outside a house he was surveilling and asked for identification.  When he discovered that Strieff had an outstanding warrant for a minor traffic violation, he proceeded to search him and cound methamphetamine in Strieff's pockets.  According to the so-called exclusionary rule, evidence gained in violation of the Fourth Amendment is generally not permitted in court, but it is unclear whether the rule applies when a warrant is found after an improper detainment.  During oral argument, justice Sonya Sotomayor asked ``what stops us from becoming a police state and just having the police stand on the corner down here and stop every person, ask them for identification, put it through? and if a warrant comes up, searching them?"
 
-At the core of these arguments lies a notion that searches should be rare in society rather than widespread.  We encode this by requiring that the total number of searches is less than some bound, $\sum_i S(i) < M$.  Laws that don't meet this requirement may be declared unenforceable.
+At the core of these arguments lies a notion that searches should be rare in society rather than widespread.  We encode this by requiring that the total number of searches is less than some bound, $$\sum_i S(i) < M$$.  Laws that don't meet this requirement may be declared unenforceable.
 
 Search Quantity Privacy prevents the enforcement of laws against a large fraction of a population.
 
