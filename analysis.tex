@@ -4,4 +4,54 @@
 \section{Analysis}
 \label{sec:analysis}
 
-The analysis
+In this section, we specify a functional form for $L_0$ in order to discuss the effects of privacy.  While this reduces the generality of our model, it allows us to distinguish between different notions of privacy protection.  
+
+We imagine that three conditions must apply for citizen $i$ to be punished by a law:
+
+\begin{enumerate}
+\item As the text of the law is written, it specifies that citizen $i$ is engaged in unlawful behavior.  We assume this occurs with probability $Cr(i)$.
+\item Citizen $i$ is searched by the authorities.  We assume this occurs with probability $S(i)$.
+\item A search on citizen $i$ is successful in finding evidence.  Conditional on the previous conditions, we assume this occurs with probability $F(i)$.  For simplicity, we will assume this function is a constant and write it as $F$.
+\end{enumerate}
+
+The probability that citizen $i$ is punished is therefore $S(i)Cr(i)F$.  The total number of citizens punished is given by $T = \sum_i S(i)Cr(i)F$.  We let $L_0$ take the following form:
+
+$$L_0(i) = BT - S(i)Cr(i)FP$$
+
+Each citizen earns a benefit from the law, proportional to the number of people that are caught, but earns disutility P if she is punished.
+
+Our model allows us to compare four types of privacy, two of which are technological in nature, and two of which are legal.
+
+\subsection{Attribute Privacy}
+
+Attribute privacy is the notion that a person can conceal personal characteristics, which authorities may use to identify them as someone likely to commit a crime.  In the extreme case, individuals may be fully anonymized, which we express by saying that $S(i)$ is a constant.  In less extreme cases, we may place restrictions on $S(i)$.
+
+For a given text of a law, which specifies $Cr(i)$, restrictions on $S(i)$ may prevent a majority from emerging to support the law.  This is a simple consequence of the fact that restrictions on $S(i)$ translate into restrictions on $L_0(i)$ and $L_1(i)$.  In practice, we may expect authorities to restrict searches to a minority of the population, thereby ensuring that $L_0(i)$ is positive for a majority of individuals.
+
+An example in which individuals are fully or nearly anonymized is the case in which users of TOR hide the online activities.  We may specify this case by saying that $S(i)$ is a constant.  In this case, the shape of $L_0$ is entirely determined by $Cr(i)$, up to a scaling factor.  The number of individuals that support the law depends only on $Cr(i)$ and how polarized society is.
+
+\subsection{Search Privacy}
+
+Search Privacy is the idea that a citizen may use technology to prevent the discovery of evidence in the event that she is searched.  We represent this as a decrease in the parameter, $F$, representing the chance that evidence is found when a citizen breaking the law is searched.  In our specification, $F$ appears in both components of $L_0$ so this scales $L_0(i)$ equally for all $i$.  This also implies that $L_1(i)$ is scaled equally for all $i$, which means that the number of citizens supporting the law is unaffected.
+
+Although search privacy will not disrupt a majority of individuals that support a law, it will affect welfare, scaling it towards zero.  Search privacy may therefore be welfare benefiting in the case of divisive laws for which total welfare is decreased.
+
+\subsection{Search Quantity Privacy}
+
+Our first legal notion of privacy corresponds to the idea that searches should not be widespread in a society.  This is exemplified by a recent case before the US supreme court, Utah v. Strieff.  This case revolves around the extent to which the Fourth Amendment restricts police from searching citizens.  Detective Douglas Fackrell stopped Edward Strieff outside a house he was surveilling and asked for identification.  When he discovered that Strieff had an outstanding warrant for a minor traffic violation, he proceeded to search him and cound methamphetamine in Strieff's pockets.  According to the so-called exclusionary rule, evidence gained in violation of the Fourth Amendment is generally not permitted in court, but it is unclear whether the rule applies when a warrant is found after an improper detainment.  During oral argument, justice Sonya Sotomayor asked ?what stops us from becoming a police state and just having the police stand on the corner down here and stop every person, ask them for identification, put it through?and if a warrant comes up, searching them?"
+
+At the core of these arguments lies a notion that searches should be rare in society rather than widespread.  We encode this by requiring that the total number of searches is less than some bound, $\sum_i S(i) < M$.  Laws that don't meet this requirement may be declared unenforceable.
+
+Search Quantity Privacy prevents the enforcement of laws against a large fraction of a population.
+
+
+\subsection{Search Specificity Privacy}
+
+Another notion of privacy supposes that authorities must have individualized reasonable suspicion to conduct a search.  This is similar to the notion of Search Quantity Privacy, defined above, but the focus is not on the total number of searches, but rather on how well-targeted the searches are.  We may encode this by requiring that a certain fraction of searches result in the finding of evidence,
+
+$$\frac{\sum_i S(i)Cr(i)F}{\sum_i S(i)} > \rho$$
+
+
+
+(note: should consider divisive laws in particular...)
+
