@@ -71,9 +71,15 @@ L_1&(0) = n_0 a_{00}  L_0(0) + n_1 a_{01}  L_0(1) \\
 &= \left[  \frac{\beta n_0}{n_0 + n_1} - n_0 a_{00}P  \right]p_0 + \left[ \frac{\beta n_1}{n_0 + n_1} -  n_1 a_{01}P \right] p_1
 \end{align}
 
+Letting $b_{00} = \frac{\beta }{n_0 + n_1} -  a_{00}P $ and $b_{01} = \frac{\beta}{n_0 + n_1} -   a_{01}P  $, we can write $L_1(0) = b_{00}n_0p_0 + b_{01} n_1p_1$.  Our assumption that $a_{00} > a_{01}$ guarantees that $b_{00} < b_{01}$.  This means that there are 3 possibilities for the signs of the coefficients on $p_0$ and $p_1$.
 
+\begin{enumerate}
+\item $\partial L_1(0) / \partial p_0 \leq 0$ and $\partial L_1(0) / \partial p_1 \leq 0$.  This will happen whenever $\beta \leq   a_{01}P(n_0 + n_1)  $, meaning that the benefit from the law is small relative to the size of the punishment multiplied by the affinity of the majority for the minority.
+\item $\partial L_1(0) / \partial p_0 \leq 0$ and $\partial L_1(0) / \partial p_1 > 0$.  This will happen whenever $  a_{01}P(n_0 + n_1) < \beta  \leq a_{00}P(n_0 + n_1) $, or for intermediary amounts of benefit.  In this case, the majority will tend to support laws that punish the minority more and the majority less.
+\item $\partial L_1(0) / \partial p_0 > 0$ and $\partial L_1(0) / \partial p_1 > 0$.  This will happen whenever $   a_{00}P(n_0 + n_1) < \beta$, or for high amounts of benefit.  In this case, the majority will tend to support laws that punish both groups as much as possible.
+\end{enumerate}
 
-Similarly for type 1 consumers,
+The middle possibility, in which majority support increases with $p_1$ but decreases with $p_0$ is of particular interest, since this is the case in which the majority would favor the most divisive treatment of the two groups.
 
 \begin{align}
 L_1(1) = 
