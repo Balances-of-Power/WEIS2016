@@ -4,6 +4,17 @@
 \section{Model}
 \label{sec:model} 
 
+Features we want to capture:
+
+\begin{itemize}
+\item Each individual may have an arbitrary initial evaluation of any law based on any reason.
+\item Each individual's evaluation may (but need not) be influenced by evaluations of others.
+\item Each individual may have a varying level of influence within a given social network.
+\item We distinguish an individual's derived benefit of a law from an individual's support of a law. 
+\item An individual's support is supplemented by a weighted influence of others. %influence With respect to a fixed law, suppose the mixing process happens and we measure, then we cannot tell the difference between the influence and the case where each individual makes their own evaluation or is influenced by others.  
+\item 
+\end{itemize}
+
 For each pair of citizens $$i,j\in\{1,\dots N\},$$ define $$a_{ij}\in [0,1]$$ to be the affinity of person $i$ for person $j$, or the extent to which person $i$ takes the well-being of person $j$ into account when making decisions, or the extent to which person $j$ influences the decision of person $i$. For each $i$ we must have $$\sum_ja_{ij}=1.$$%something similarly concrete-ish.
 
 Given a law $L$ and a citizen $j\in\{1,\dots N\}$, %define $$L(j)\in[0,1]$$ to be the probability that the law targets $j$.
