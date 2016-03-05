@@ -45,19 +45,22 @@ Although search privacy will not disrupt a majority of individuals that support 
 
 \subsection{Search Quantity Privacy}
 
-Our first legal notion of privacy corresponds to the idea that searches should not be widespread in a society.  This is exemplified by a recent case before the US supreme court, Utah v. Strieff.  This case revolves around the extent to which the Fourth Amendment restricts police from searching citizens.  Detective Douglas Fackrell stopped Edward Strieff outside a house he was surveilling and asked for identification.  When he discovered that Strieff had an outstanding warrant for a minor traffic violation, he proceeded to search him and cound methamphetamine in Strieff's pockets.  According to the so-called exclusionary rule, evidence gained in violation of the Fourth Amendment is generally not permitted in court, but it is unclear whether the rule applies when a warrant is found after an improper detainment.  During oral argument, justice Sonya Sotomayor asked ``what stops us from becoming a police state and just having the police stand on the corner down here and stop every person, ask them for identification, put it through? and if a warrant comes up, searching them?"
+Our first legal notion of privacy corresponds to the idea that searches should not be widespread in a society.  This is exemplified by a recent case before the US supreme court, Utah v. Strieff.  This case revolves around the extent to which the Fourth Amendment restricts police from searching citizens.  Detective Douglas Fackrell stopped Edward Strieff outside a house he was surveilling and asked for identification.  When he discovered that Strieff had an outstanding warrant for a minor traffic violation, he proceeded to search him and found methamphetamine in Strieff's pockets.  According to the so-called exclusionary rule, evidence gained in violation of the Fourth Amendment is generally not permitted in court, but it is unclear whether the rule applies when a warrant is found after an improper detainment.  During oral argument, justice Sonya Sotomayor asked ``what stops us from becoming a police state and just having the police stand on the corner down here and stop every person, ask them for identification, put it through, and if a warrant comes up, searching them?"
 
-At the core of these arguments lies a notion that searches should be rare in society rather than widespread.  We encode this by requiring that the total number of searches is less than some bound, $$\sum_i S(i) < M$$.  Laws that don't meet this requirement may be declared unenforceable.
+At the core of these arguments lies a notion that searches should be rare in society rather than widespread.  We encode this by requiring that the fraction of citizens that are searched is less than some bound, 
+\begin{align}
+\frac{\sum_j S(j)}{n} < m
+\end{align}
 
-Search Quantity Privacy prevents the enforcement of laws against a large fraction of a population.
+Laws that don't meet this requirement may be declared unenforceable.  Search Quantity Privacy prevents the enforcement of laws against a large fraction of a population.
 
 
 \subsection{Search Specificity Privacy}
 
 Another notion of privacy supposes that authorities must have individualized reasonable suspicion to conduct a search.  This is similar to the notion of Search Quantity Privacy, defined above, but the focus is not on the total number of searches, but rather on how well-targeted the searches are.  We may encode this by requiring that a certain fraction of searches result in the finding of evidence,
-
-$$\frac{\sum_i S(i)Cr(i)F}{\sum_i S(i)} > \rho$$
-
+\begin{align}
+\frac{\sum_i S(i)Cr(i)F}{\sum_i S(i)} > \rho
+\end{align}
 
 
 
@@ -103,7 +106,13 @@ Given a law $(Cr, S, F)$, let $p_0 = Cr(0)S(0)F$ be the fraction of the majority
 \draw [-,dashed] (0, .6) -- (.5, .6); 
 
 	%point D
-\draw[shift={(0.2, .6)}] node [above] {$D$};
+\draw[shift={(0.35, .6)}] node [above] {$D$};
+
+	%top of search quantity privacy
+\draw [-,dashed] (0, .85) -- (.6, 0); 
+
+	%point E
+\draw[shift={(0.1, .75)}] node [above] {$E$};
 
 
 \end{tikzpicture}
@@ -188,7 +197,7 @@ Having outlined some basic properties of our model, we turn our attention to the
 0 < \underbar r < S(1) /S(0) < \bar r < \infty
 \end{align}
 
-Since divisiveness is maximized at the point $ \left(0, Cr(1) \right)$, attribute privacy necessarily reduces divisiveness since it disallows laws at this point.  As the figure is depicted, the slope of line C is greater than the slope of line B, 
+Since divisiveness is maximized at the point $ \left(0, Cr(1) \right)$, attribute privacy necessarily reduces the maximum amount of divisiveness since it disallows laws at this point.  As the figure is depicted, the slope of line C is greater than the slope of line B,
 
 \begin{align}
 Cr(1)/Cr(0) > - b_{00}n_0 / b_{01}n_1 
@@ -201,5 +210,57 @@ Cr(1)/Cr(0) > - b_{00}n_0 / b_{01}n_1
 \end{align}
 
 In this case, no law on line C will have majority support except for a law at the origin.  Nevertheless, divisiveness decreases since having no law or a law at the origin brings divisiveness to zero.
+
+
+\subsection{Effects of Search Privacy}
+
+We interpret search privacy to mean that not all individuals who are searched while committing a crime are caught, 
+
+\begin{align}
+F<1
+\end{align}
+
+This condition limits the maximum number of people, of either type, who may be punished.  This is depicted by rectangle D in Figure \paul{blah}.  Like attribute privacy, search privacy reduces the maximum amount of divisiveness that can be caused by a law.  Specifically, the maximum divisiveness is reduced by a factor of F.  Unlike attribute privacy, search privacy never results in a scenario in which a previously enforced law can no longer have majority support.  As long as $S(0)$ and $S(1)$ are unchanged, reducing F still results in a law with majority support.  Divisiveness and welfare are simply scaled downwards.
+
+\subsection{Effects of Search Quantity Privacy}
+
+To model a policy of search quantity privacy, we impose the condition, 
+
+\begin{align}
+\frac{\sum_j S(i)}{n_0 + n_1} = \frac{n_0 S(0) + n_1 S(1)}{n_0 + n_1}  < m
+\end{align}
+
+The maximum value of $S(0)$ can be attained when $S(1) = 0$, allowing $S(0) = m (n_0 + n_1)/n_0$.  Similarly, when $S(0) = 0$, $S(1)$ can attain a value of $S(1) = m (n_0 + n_1)/n_1$.   Note that the maximum value of $S(0)$ is smaller than the maximum value of $S(1)$.  This feature is plotted as line E in Figure \paul{blah}.  Laws below this line are acceptable under the search quantity standard.  
+
+As the figure demonstrates, search quantity privacy may reduce the maximum possible divisiveness of a law.  The majority will still favor a law that is at the top corner of the acceptable region, which represents the maximum amount of divisiveness for a given amount of searches.  If the bound $m$ is not set low enough, the maximum amount of divisiveness may not be reduced at all.
+
+\subsection{Effects of Search Specificity Privacy}
+
+Search Specificity Privacy requires a certain proportion of searches to turn up evidence that an individual is breaking the law.  We represent this by writing,
+
+$$\frac{\sum_i S(i)Cr(i)F}{\sum_i S(i)} = \frac{ n_0 S(0)Cr(0)F + n_1 S(1)Cr(1)F}{n_0 S(0) + n_1 S(1)}  > \rho$$
+
+Rearranging,
+
+\begin{align}
+\nonumber n_0 S(0)Cr(0)F + n_1 S(1)Cr(1)F &> \rho n_0 S(0) + \rho n_1 S(1) \\
+\nonumber  (n_1 Cr(1)F - \rho n_1 ) S(1) &>  - (n_0 Cr(0)F - \rho n_0 )S(0) \\
+\end{align}
+
+When $\rho$ is close enough to 0, the left hand side is nonnegative and the right hand side is nonpositive, so the constraint does not bind.  The set of possible laws is therefore not reduced.  On the other hand, when $\rho$ is close enough to 1, the left hand side is nonpositive and the right hand side is nonnegative, so the constraint binds unless $S(0) = S(1) = 0$.  No law can pass the privacy requirement except for the trivial one that doesn't punish anyone.  
+
+The more interesting region is when $rho$ lies between  $Cr(0)F$ and $Cr(1)F$.  In the case that $Cr(1) > Cr(0)$, meaning that the text of the law targets behavior that is more common for individuals of type 1, we can write the constraint as,
+
+\begin{align}
+\frac{S(1)}{S(0)} &>  \frac{\rho n_0 - n_0 Cr(0)F }{n_1 Cr(1)F - \rho n_1}
+\end{align}
+
+where the fraction is arranged so that the numerator and denominator are positive.  This constraint is depicted by line F in Figure \paul{blah}.  Every law above this line is permitted under the search specificity rule.  Unfortunately, this rule does nothing to reduce the maximum possible divisiveness of a law.  In fact, it may have the opposite effect, allowing only laws for which members of the minority are much more likely to be searched than members of the majority.
+
+In part, this conclusion may be the result of limitations of our model.  We have assumed that all members within a group have equal odds of breaking the law and equal odds of being searched.  A more detailed model might allow individuals to vary within each group.  Authorities may be able to select a smaller fraction of each group, choosing individuals with a higher probability of breaking the law, thereby increasing the proportion of searches that turn up evidence.  In such a model, search specificity privacy may be expected to limit the maximum divisiveness of a law.  Nevertheless, we believe that our central insight, that search specificity privacy limits searches on the majority more than on the minority, will continue to hold.
+
+
+
+
 
 
