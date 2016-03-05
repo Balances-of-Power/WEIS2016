@@ -62,7 +62,9 @@ $$\frac{\sum_i S(i)Cr(i)F}{\sum_i S(i)} > \rho$$
 
 To further explore issues of privacy, we must assume a particular structure for consumer affinity.  In this section, we analyze the special case that there are two types of citizens, labeled 0 and 1.  Type 0 citizens are assumed to form the majority with population $n_0$.  Type 1 citizens form the minority with population $n_1 < n_0$.  Within each group, we assume that all citizens have identical preferences.  The affinity of a citizen of type $i$ for a citizen of type $j$ is labeled $a_ij$.  For exposition, we make the additional assumption that $a_{00} > a_{01}$ and $a_{11} > a_{10}$, meaning that citizens care more about what happens to an individual of their own type than one of the other type.
 
-Given a law $(Cr, S, F)$, let $p_0 = Cr(0)S(0)F$ be the fraction of the majority that are punished, and let $p_1 = Cr(1)S(1)F$ be the fraction of the minority that are punished.  We may compute support from consumers of type 0 as follows,
+Given a law $(Cr, S, F)$, let $p_0 = Cr(0)S(0)F$ be the fraction of the majority that are punished, and let $p_1 = Cr(1)S(1)F$ be the fraction of the minority that are punished.  We use Figure \paul{blah} to plot these quantities for different possible laws.  On this graph, the x-axis represents $p_0$ and the y-axis represents $p_1$.  In our model, the text of the law specifies the maximum fraction of each type of citizen that can be punished, $Cr(0)$ and $Cr(0)$, which occurs when $F=1$ and everyone is searched.  This region is represented by the outermost rectangle in the Figure, labeled A.
+
+Since more than half of the population is of type 0, a law may pass whenever the support of each type 0 individual is nonnegative.  We may compute support from individuals of type 0 as follows,
 
 \begin{align}
 L_1&(0) = n_0 a_{00}  L_0(0) + n_1 a_{01}  L_0(1) \\
@@ -71,7 +73,13 @@ L_1&(0) = n_0 a_{00}  L_0(0) + n_1 a_{01}  L_0(1) \\
 &= \left[  \frac{\beta n_0}{n_0 + n_1} - n_0 a_{00}P  \right]p_0 + \left[ \frac{\beta n_1}{n_0 + n_1} -  n_1 a_{01}P \right] p_1
 \end{align}
 
-Letting $b_{00} = \frac{\beta }{n_0 + n_1} -  a_{00}P $ and $b_{01} = \frac{\beta}{n_0 + n_1} -   a_{01}P  $, we can write $L_1(0) = b_{00}n_0p_0 + b_{01} n_1p_1$.  Our assumption that $a_{00} > a_{01}$ guarantees that $b_{00} < b_{01}$.  This means that there are 3 possibilities for the signs of the coefficients on $p_0$ and $p_1$.
+Letting $b_{00} = \frac{\beta }{n_0 + n_1} -  a_{00}P $ and $b_{01} = \frac{\beta}{n_0 + n_1} -   a_{01}P $, we can write,
+
+\begin{align}
+L_1(0) = b_{00}n_0p_0 + b_{01} n_1p_1 
+\end{align}
+
+Our assumption that $a_{00} > a_{01}$ guarantees that $b_{00} < b_{01}$.  This means that there are 3 possibilities for the signs of the coefficients on $p_0$ and $p_1$.
 
 \begin{enumerate}
 \item $\partial L_1(0) / \partial p_0 \leq 0$ and $\partial L_1(0) / \partial p_1 \leq 0$.  This will happen whenever $\beta \leq   a_{01}P(n_0 + n_1)  $, meaning that the benefit from the law is small relative to the size of the punishment multiplied by the affinity of the majority for the minority.
@@ -81,21 +89,36 @@ Letting $b_{00} = \frac{\beta }{n_0 + n_1} -  a_{00}P $ and $b_{01} = \frac{\bet
 
 The middle possibility, in which majority support increases with $p_1$ but decreases with $p_0$ is of particular interest, since this is the case in which the majority would favor the most divisive treatment of the two groups.
 
-\begin{align}
-L_1(1) = 
-\end{align}
-
-
-
 A law will have majority support if and only if $L_1(0) \geq 0$.  This can be written as,
 
 \begin{align}
-\beta F\left[ n_0 S(0)Cr(0) + n_1 S(1)Cr(1)\right]/(n_0 + n_1)  - b_{00}S(0)Cr(0)FP - b_{01}  S(1)Cr(1)FP > 0 \\
-\beta \left[ \frac{n_0}{n_0 + n_1}  S(0)Cr(0) + \frac{n_1}{n_0 + n_1} S(1)Cr(1)\right] - b_{00}S(0)Cr(0)P - b_{01}  S(1)Cr(1)P > 0 \\
-[  \frac{\beta n_0}{n_0 + n_1} - b_{00}P  ]S(0)Cr(0) + [ \frac{\beta n_1}{n_0 + n_1} -  b_{01}P ] S(1)Cr(1) 
+L_1(0) = b_{00}n_0p_0 + b_{01} n_1p_1 \geq 0
 \end{align}
 
-Figure \paul{blah} allows us to plot a law according to its effects on the majority and the minority.  The x-axis represents the fraction of type 0 citizens that are punished according to the law.  The y-axis represents the fraction of type 1 citizens that are punished according to the law.  In our model, the text of the law specifies the maximum fraction of each type of citizen that can be punished, $Cr(1)$ and $Cr(2)$, which occurs when $F=1$ and everyone is searched.  This is represented by the outermost rectangle in the Figure, labeled A.
+If condition 1 holds above, no law within rectangle A can have majority support, except for the origin.  This means that nobody will be punished and no benefit results.  If condition 3 holds above, every law within rectangle A has majority support, so a law may pass for any values of $S(0)$, $S(1)$, and $F$.  For the more interesting condition 2, the previous equation divides rectangle A into two regions.  This is depicted by line B in Figure \paul{blah}.  Every law that falls on this line or above can have majority support.
+
+Using a similar argument to that above, we can derive the support of a type 1 citizen for the law to be
+
+\begin{align}
+L_1(1) =  b_{10} n_0p_0 + b_{11}n_1p_1
+\end{align}
+
+where $b_{10} = \frac{\beta}{n_0 + n_1} -   a_{10}P$ and $b_{11} = \frac{\beta }{n_0 + n_1} -  a_{11}P $ .  Since we assume $a_{10} < a_{11}$, we have $b_{10} > b_{11}$.
+
+
+
+
+
+\begin{align}
+\partial L_1(0) / \partial p_0 < \partial L_1(1) / \partial p_0 \\
+\partial L_1(0) / \partial p_1 > \partial L_1(1) / \partial p_1
+\end{align}
+
+
+
+
+
+
 
 The region under line B represents the set of possible laws that have majority support.  Notice that the maximum number of minority citizens affected by a potential law is greater than the maximum number of majority citizens.  Line B may intersect the maximum rectangle, A, or it may not.  For this exposition, we draw line A as though the text of the law limits the maximum number of minority types that may be punished under a law with majority support.
 
