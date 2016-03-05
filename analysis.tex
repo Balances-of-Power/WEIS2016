@@ -60,7 +60,11 @@ $$\frac{\sum_i S(i)Cr(i)F}{\sum_i S(i)} > \rho$$
 
 \section{A Two-Population Model}
 
-To further explore issues of privacy, we must assume a particular structure for consumer affinity.  In this section, we analyze the special case that there are two types of citizens, labeled 0 and 1.  Type 0 citizens are assumed to form the majority with population $n_0$.  Type 1 citizens form the minority with population $n_1 < n_0$.  Within each group, we assume that all citizens have identical preferences.  The affinity of a citizen of type $i$ for a citizen of type $j$ is labeled $a_ij$.  For exposition, we make the additional assumption that $a_{00} > a_{01}$ and $a_{11} > a_{10}$, meaning that citizens care more about what happens to an individual of their own type than one of the other type.
+To further explore issues of privacy, we must assume a particular structure for consumer affinity.  In this section, we analyze the special case that there are two types of citizens, labeled 0 and 1.  Type 0 citizens are assumed to form the majority with population $n_0$.  Type 1 citizens form the minority with population $n_1 < n_0$.  Within each group, we assume that all citizens have identical preferences.  The affinity of a citizen of type $i$ for a citizen of type $j$ is labeled $a_ij$.  For exposition, we make the additional assumption that $a_{00} > a_{01}$ and $a_{11} > a_{10}$, meaning that citizens care more about what happens to an individual of their own type than one of the other type.  This also implies that 
+\begin{align}
+a_{00} > 1/(n_0 + n_1) > a_{01} \\
+a_{11} > 1/(n_0 + n_1) >  a_{10}
+\end{align}
 
 Given a law $(Cr, S, F)$, let $p_0 = Cr(0)S(0)F$ be the fraction of the majority that are punished, and let $p_1 = Cr(1)S(1)F$ be the fraction of the minority that are punished.  We use Figure \paul{blah} to plot these quantities for different possible laws.  On this graph, the x-axis represents $p_0$ and the y-axis represents $p_1$.  In our model, the text of the law specifies the maximum fraction of each type of citizen that can be punished, $Cr(0)$ and $Cr(0)$, which occurs when $F=1$ and everyone is searched.  This region is represented by the outermost rectangle in the Figure, labeled A.
 
@@ -105,28 +109,44 @@ L_1(1) =  b_{10} n_0p_0 + b_{11}n_1p_1
 
 where $b_{10} = \frac{\beta}{n_0 + n_1} -   a_{10}P$ and $b_{11} = \frac{\beta }{n_0 + n_1} -  a_{11}P $ .  Since we assume $a_{10} < a_{11}$, we have $b_{10} > b_{11}$.
 
-
-
-
+We compute divisiveness as the standard deviation,
 
 \begin{align}
-\partial L_1(0) / \partial p_0 < \partial L_1(1) / \partial p_0 \\
-\partial L_1(0) / \partial p_1 > \partial L_1(1) / \partial p_1
+s_L &= \sqrt{var(L_1)}  =  \sqrt{E\left[ \left(L_1 - \bar{L} \right)^2 \right] }  \\
+&= \sqrt{ \frac{ n_0\left(L_1(0) - \bar{L}\right)^2 + n_1\left(L_1(1) - \bar{L} \right)^2 }{n_0+n_1}  }
 \end{align}
 
+where $\bar{L} = \frac{n_0 L_1(0) + n_1L_1(1) }{n_0 + n_1}$ is the average support for the law.  After some algebra, this can be simplified to the following,
 
+\begin{align}
+s_L &= \frac{\sqrt{n_0n_1}}{n_0 + n_1} \left| L_1(0) - L_1(1) \right|
+\end{align}
 
+In the region of laws that have majority support, it can be shows that $L_1(0) > L_1(1)$. Substituting for $L_1(0)$ and $L_1(1)$, we have
 
+\begin{align}
+s_L &= \frac{\sqrt{n_0n_1}}{n_0 + n_1} \left(  b_{00}n_0p_0 + b_{01} n_1p_1 - b_{10} n_0p_0 - b_{11}n_1p_1 \right) \\
+&= \frac{\sqrt{n_0n_1}}{n_0 + n_1} \left(  ( b_{00} - b_{10} )n_0p_0 + ( b_{01} - b_{11})n_1p_1 \right) \\
+&= \frac{\sqrt{n_0n_1}}{n_0 + n_1} \left(  ( a_{10} - a_{00} )P n_0p_0 + ( a_{11} - a_{01})P n_1p_1 \right) \\
+\end{align}
 
+by the ordering on our affinities, we know $a_{10} - a_{00}  < 0$ and $a_{11} - a_{01} > 0$ so
 
+\begin{align}
+\partial s_L / \partial p_0 <0 \\
+\partial s_L / \partial p_1 >0
+\end{align}
 
-The region under line B represents the set of possible laws that have majority support.  Notice that the maximum number of minority citizens affected by a potential law is greater than the maximum number of majority citizens.  Line B may intersect the maximum rectangle, A, or it may not.  For this exposition, we draw line A as though the text of the law limits the maximum number of minority types that may be punished under a law with majority support.
+In other words, in the region of laws with majority support, divisiveness goes up with the number of minority members punished and down with the number of minority members punished.  This means that the law most favored by the majority, which is in the upper left corner of rectangle A, is also the most divisive.
 
-Vector C, which is normal to Line B and has magnitude $(-b_{00}, -b_{01})$, represents the gradient of type 0 support.  This is the direction along which support by the majority increases at the fastest rate.  Notice that our ordering conditions imply the slope of this line is less than 1.
+\subsection{Effects of Attribute Privacy}
 
-Vector D, which has magnitude $(-b_{10}, -b_{11})$ similarly represents the gradient of type 1 support.  Our order conditions imply the slope of this line is greater than 1.
+Having outlined some basic properties of our model, we turn our attention to the effects of different types of privacy.  We begin with attribute privacy, which we understand to mean restrictions on S(0).  We model the extreme case of anonymity, represented as $S(0) = S(1)$.  The set of possible laws is represented by line C in Figure \paul{blah}.  Note that line C passes through the point $ \left(Cr(0), Cr(1) \right)$ at the upper right of rectangle A.  A more moderate version of attribute privacy may place bounds on the ratio of $S(1)$ to $S(0)$.  For example, we may specify,
 
-Vector E, 
+\begin{align}
+0 < \underbar r < S(1) /S(0) < \bar r < \infty
+\end{align}
 
+Since divisiveness is maximized at the point $ \left(0, Cr(1) \right)$, attribute privacy necessarily reduces divisiveness since it disallows laws at this point.
 
 
