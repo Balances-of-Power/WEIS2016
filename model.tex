@@ -1,7 +1,7 @@
 %!TEX root = paper.tex
 %model.tex
 
-\section{Model}
+\section{Influence and Polarization Model}
 \label{sec:model} 
 
 
@@ -121,11 +121,11 @@ For each pair of citizens $$i,j\in\{1,\dots N\},$$ define $$a_{ij}\in [0,1]$$ to
 
 Given a law $L$ and a citizen $j\in\{1,\dots N\}$, %define $$L(j)\in[0,1]$$ to be the probability that the law targets $j$.
 %Alternatively, 
-define $$L_0(j)\in\mathbb{R}$$ to be the direct impact of the law on person $j$. The impact of $L$ is unbounded because laws may save a life or take away life from individuals impacted by them.
+define $$V_L(j)\in\mathbb{R}$$ to be the direct impact of the law on person $j$. The direct  impact of $L$ is unbounded because laws may save a life or take away life from individuals impacted by them.
 
-Certainly in many cases, an individual's support for a law is perfectly in tune with the perceived direct impact on the law.  In such cases, a person's continued support for $L$ might continue to be $L_0(i)$ indefinitely. % weight his or her own opinion so much above others that for all practical purposes we have $a_{ii}\approx 1$, $a_{ij}\approx 0$ for $j\neq i$, and the support of $i$ for $L$ is exactly $$a_{ii}L(i)=L(i).$$
+Certainly in many cases, an individual's direct valuation for a law is perfectly in tune with the perceived direct impact on the law.  In such cases, a person's continued support for $L$ might continue to be $V_L(i)$ indefinitely. % weight his or her own opinion so much above others that for all practical purposes we have $a_{ii}\approx 1$, $a_{ij}\approx 0$ for $j\neq i$, and the support of $i$ for $L$ is exactly $$a_{ii}L(i)=L(i).$$
 
-In other cases, for example where a law such as a sodomy ban has little or no direct impact, initial evaluation of the law may be something very close to zero, i.e. neither positive nor negative, but a person's view of the law may evolve based on the views and experiences of their influences.  In such cases, we may suppose that after some amount of time, an individual's support for L evolves to become $$L_1(i)=\sum_ja_{ij}L_0(j).$$
+In other cases, for example where a law such as a sodomy ban has little or no direct impact, initial evaluation of the law may be something very close to zero, i.e. neither positive nor negative.  Nevertheless a person's view of the law may evolve based on the views and experiences of their influences.  In such cases, we may suppose that after some amount of time, an individual's support for L evolves to become $$U_L(i)=\sum_ja_{ij}V_L(j).$$
 
 %Every law $L$ induces a function from the set of all citizens to the real line and thus induces a linear ordering of those citizens given by $j_1<j_2$ iff $L(j_1)<L(j_2)$.
 

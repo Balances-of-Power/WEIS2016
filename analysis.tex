@@ -6,48 +6,56 @@
 
 
 
-
-In this section, we specify a functional form for $L_0$ in order to discuss the effects of privacy.  While this reduces the generality of our model, it allows us to distinguish between different notions of privacy protection.  
+\subsection{Law Valuation Framework}
+In this section, we specify a functional form for $V_L$ in order to discuss the effects of privacy.  While this reduces the generality of our model, it allows us to distinguish between different notions of privacy protection.  
 
 We imagine that three conditions must apply for citizen $i$ to be punished by a law:
 
 \begin{enumerate}
-\item As the text of the law is written, it specifies that citizen $i$ is engaged in unlawful behavior.  We assume this occurs with probability $Cr(i)$.
+\item As the text of the law is written, it specifies that citizen $i$ is engaged in unlawful behavior.  We assume this occurs with probability $C(i)$.
 \item Citizen $i$ is searched by the authorities.  We assume this occurs with probability $S(i)$.
 \item A search on citizen $i$ is successful in finding evidence.  Conditional on the previous conditions, we assume this occurs with probability $F(i)$.  For simplicity, we will assume this function is a constant and write it as $F$.
 \end{enumerate}
 
-The probability that citizen $i$ is punished is therefore $S(i)Cr(i)F$.  The total number of citizens punished is given by $T = \sum_i S(i)Cr(i)F$.  We let $L_0$ take the following form:
+The probability that citizen $i$ is punished is therefore $S(i)C(i)F$. 
+Let $P$ be the punishment for violating the law. Then each citizen's individual utility based only on the law's expected punishment on them may be given by 
+$$S(i)C(i)F\cdot P.$$
 
-$$L_0(i) = BT - S(i)Cr(i)FP$$
+We may also compute the total number of citizens punished by the law as $$\sum_j S(j)C(j)F.$$  In this analysis we assume that an individual who passes a law obtains some benefit for criminalizing the specific activity that the law targets, and so the individual receives a net gain in proportion to the percentage of the population that is successfully targeted by the law.  In this framework then, we construe the initial valuation of the law $L$ to person $i$ to be the difference between the total expected punishment  for all citizens (weighted by a constant $\beta$) and the individual's expected punishment just in case she breaks the law. That is,  
 
-Each citizen earns a benefit from the law, proportional to the number of people that are caught, but earns disutility P if she is punished.
+$$V_L(i) = \beta \frac{\sum_j S(j)C(j)F}{N} - S(i)C(i)F\cdot P$$
 
-Our model allows us to compare four types of privacy, two of which are technological in nature, and two of which are legal.
+%Each citizen earns a benefit from the law, proportional to the number of people that are caught, but earns disutility P if she is punished.
 
-\subsection{Attribute Privacy}
+\subsection{Effects of Privacy Technologies and Laws}
+Our valuation model allows us to compare four types of privacy, the first two of which are technological in nature, and the second  two of which are legal.
 
-Attribute privacy is the notion that a person can conceal personal characteristics, which authorities may use to identify them as someone likely to commit a crime.  In the extreme case, individuals may be fully anonymized, which we express by saying that $S(i)$ is a constant. 
+\subsubsection{Attribute Privacy}
 
-$$S(i)=S$$ In less extreme cases, we may place restrictions on $S(i)$.
+Attribute privacy is the notion that a person can conceal personal characteristics, which authorities may use to identify them as someone likely to commit a crime. \emph{Attribute privacy serves to prevent targeted searches.}  An example in which the attributes of individuals are fully or nearly anonymized is the case in which users of TOR hide their online activities. We may model this type of privacy by stipulating that $S(i)$ is a constant.
+$$S(i)=S$$
+%In less extreme cases, we may place restrictions on $S(i)$.
 
-For a given text of a law, which specifies $Cr(i)$, restrictions on $S(i)$ may prevent a majority from emerging to support the law.  This is a simple consequence of the fact that restrictions on $S(i)$ translate into restrictions on $L_0(i)$ and $L_1(i)$.  In practice, we may expect authorities to restrict searches to a minority of the population, thereby ensuring that $L_0(i)$ is positive for a majority of individuals.
+For a given text of a law, which implicitly specifies for each citizen $i$ the probability with which they are a criminal with respect to the law, restrictions on $S(i)$ (the probability that a citizen is searched) may prevent a majority from emerging to support the law.  %This is a simple consequence of the fact that restrictions on $S(i)$ translate into restrictions on $L_0(i)$ and $L_1(i)$. 
+ In practice, when individual-targeted searches are prevented, we may expect authorities to restrict searches to a minority of the population, thereby ensuring that $V_L(i)$ is positive for a majority of individuals.
 
-An example in which individuals are fully or nearly anonymized is the case in which users of TOR hide the online activities.  We may specify this case by saying that $S(i)$ is a constant.  In this case, the shape of $L_0$ is entirely determined by $Cr(i)$, up to a scaling factor.  The number of individuals that support the law depends only on $Cr(i)$ and how polarized society is.
+In this case, the shape of $V_L$ is entirely determined by the distribution of criminal behavior. Thus the number of individuals that support the law depends only on $C(i)$ and how polarized society is.
 
-\subsection{Search Privacy}
+\subsubsection{Search Privacy}
 
 Search Privacy is the idea that a citizen may use technology to prevent the discovery of evidence in the event that she is searched.  We represent this as a decrease in the parameter, $F$, 
 $$F<\lambda$$
-representing the chance that evidence is found when a citizen breaking the law is searched.  In our specification, $F$ appears in both components of $L_0$ so this scales $L_0(i)$ equally for all $i$.  This also implies that $L_1(i)$ is scaled equally for all $i$, which means that the number of citizens supporting the law is unaffected.
+representing the chance that evidence is found when a citizen breaking the law is searched.  In our valuation model, $F$ appears in both the positive and negative components of $V_L$ so that it does not change the number of citizens supporting the law. 
 
-Although search privacy will not disrupt a majority of individuals that support a law, it will affect welfare, scaling it towards zero.  Search privacy may therefore be welfare benefiting in the case of divisive laws for which total welfare is decreased.
+Nevertheless, this type of privacy will affect welfare, scaling it towards zero.  Search privacy may therefore be welfare-benefitting in the case of divisive laws for which welfare is negative.
 
-\subsection{Search Quantity Privacy}
+\subsubsection{Search Quantity Privacy}
 
-Our first legal notion of privacy corresponds to the idea that searches should not be widespread in a society.  This is exemplified by a recent case before the US supreme court, Utah v. Strieff.  This case revolves around the extent to which the Fourth Amendment restricts police from searching citizens.  Detective Douglas Fackrell stopped Edward Strieff outside a house he was surveilling and asked for identification.  When he discovered that Strieff had an outstanding warrant for a minor traffic violation, he proceeded to search him and found methamphetamine in Strieff's pockets.  According to the so-called exclusionary rule, evidence gained in violation of the Fourth Amendment is generally not permitted in court, but it is unclear whether the rule applies when a warrant is found after an improper detainment.  During oral argument, justice Sonya Sotomayor asked ``what stops us from becoming a police state and just having the police stand on the corner down here and stop every person, ask them for identification, put it through, and if a warrant comes up, searching them?"
-
-At the core of these arguments lies a notion that searches should be rare in society rather than widespread.  We encode this by requiring that the fraction of citizens that are searched is less than some bound, 
+Our first legal notion of privacy corresponds to the idea that searches should not be widespread in a society.  Commentary discussed in the introduction involving  the recent supreme court case Utah v. Strieff exemplifies this notion.
+%This is exemplified by a recent case before the US supreme court, Utah v. Strieff.  This case revolves around the extent to which the Fourth Amendment restricts police from searching citizens.  Detective Douglas Fackrell stopped Edward Strieff outside a house he was surveilling and asked for identification.  When he discovered that Strieff had an outstanding warrant for a minor traffic violation, he proceeded to search him and found methamphetamine in Strieff's pockets.  According to the so-called exclusionary rule, evidence gained in violation of the Fourth Amendment is generally not permitted in court, but it is unclear whether the rule applies when a warrant is found after an improper detainment.  During oral argument, justice Sonya Sotomayor asked ``what stops us from becoming a police state and just having the police stand on the corner down here and stop every person, ask them for identification, put it through, and if a warrant comes up, searching them?"
+%
+%At the core of these arguments lies a notion that searches should be rare in society rather than widespread.  
+We encode this notion of privacy in our valuation model by requiring that the fraction of citizens that are searched is less than some bound, 
 \begin{align}
 \frac{\sum_j S(j)}{n} < m
 \end{align}
@@ -55,34 +63,54 @@ At the core of these arguments lies a notion that searches should be rare in soc
 Laws that don't meet this requirement may be declared unenforceable.  Search Quantity Privacy prevents the enforcement of laws against a large fraction of a population.
 
 
-\subsection{Search Specificity Privacy}
+\subsubsection{Search Specificity Privacy}
 
-Another notion of privacy supposes that authorities must have individualized reasonable suspicion to conduct a search.  This is similar to the notion of Search Quantity Privacy, defined above, but the focus is not on the total number of searches, but rather on how well-targeted the searches are.  We may encode this by requiring that a certain fraction of searches result in the finding of evidence,
+Another notion of privacy supposes that authorities must have individualized reasonable suspicion to conduct a search.  This is similar to the notion of Search Quantity Privacy, defined above, but the focus is not on the total proportion of searches with respect to a population, but rather on how well-targeted the searches are.  We may encode this notion of privacy by requiring that a certain fraction of searches result in the finding of evidence,
 \begin{align}
-\frac{\sum_i S(i)Cr(i)F}{\sum_i S(i)} > \rho
+\frac{\sum_i S(i)C(i)F}{\sum_i S(i)} > \rho
 \end{align}
 
 
 
-\section{A Two-Population Model}
+\subsection{Influence Framework}
 
-To further explore issues of privacy, we must assume a particular structure for consumer affinity.  In this section, we analyze the special case that there are two types of citizens, labeled 0 and 1.  Type 0 citizens are assumed to form the majority with population $n_0$.  Type 1 citizens form the minority with population $n_1 < n_0$.  Within each group, we assume that all citizens have identical preferences.  The affinity of a citizen of type $i$ for a citizen of type $j$ is labeled $a_ij$.  For exposition, we make the additional assumption that $a_{00} > a_{01}$ and $a_{11} > a_{10}$, meaning that citizens care more about what happens to an individual of their own type than one of the other type.  This also implies that 
+To further explore issues of privacy, we will place additional structure on citizen affinity.  In this section, we analyze the special case that there are two types of citizens, labeled 0 and 1.  Type 0 citizens are assumed to form the majority with population $n_0$.  Type 1 citizens form the minority with population $n_1 < n_0$.  
+
+Within each group, we assume that all citizens share identical opinions regarding laws applied to their own group, and they also share identical opinions on laws applied to group outsiders. 
+ %have identical influenced preferences.  That is, $U_L$ is constant in each group.  
+
+For example, one way for this to happen would be if the influence function $a_{ij}$ itself were constant within each of the four cases $i,j<n_0$, $i<n_0,j\geq n_0$, $i\geq n_0,j < n_0$, and $i,j\geq n_0$. In this case, regardless of any individual's initial valuation of a low, the end resulting support for the law would be a uniform  aggregate value from the group.  
+
+Note also that from a data-collection perspective, we would obtain the exact same valuations if instead we assumed that individuals in each of the four groups had independent valuations of Laws, but decided on their support for the law on the exclusive basis of an aggregation of valuations from exactly two individuals labeled $i=0$ and $j=1$.  Citizens aligned with both $i$ and $j$ would have one valuation.  Citizens aligned with $i$ but not $j$ would have another, and so forth.  In terms of eventual support of a law, this scenario is indistinguishable from the example above.
+
+%ese two scenAs in the previous case, regardless of individuals' initial valuations of the law, they would conform to $V_L(i)$at a fundamental experimental level, we e affinity of a citizen of type $i$ for a citizen of type $j$ is labeled $a_{ij}$.  For exposition, we make the additional assumption that 
+
+For the sake of example, we will use the notations $a_{00}$ to represent the average affinity of an individual in the majority to the majority position.  We use $a_{01}$ to represent a majority individual's affinity for a minority person, and so forth for the other cases.  
+
+Our only additional assumption is rather benign.  We assume that each group has a higher inter-group affinity than a cross-group affinity.  That is, 
+%$a_{00} > a_{01}$ and $a_{11} > a_{10}$, meaning that citizens care more about what happens to an individual of their own type than one of the other type.  This also implies that 
 \begin{align}
-a_{00} > 1/(n_0 + n_1) > a_{01} \\
-a_{11} > 1/(n_0 + n_1) >  a_{10}
+a_{00} > \frac{1}{N}=\frac{1}{n_0+n_1} > a_{01} \\
+a_{11} > \frac{1}{N}=\frac{1}{n_0+n_1}>  a_{10}
 \end{align}
 
-Given a law $(Cr, S, F)$, let $p_0 = Cr(0)S(0)F$ be the fraction of the majority that are punished, and let $p_1 = Cr(1)S(1)F$ be the fraction of the minority that are punished.  We use Figure \paul{blah} to plot these quantities for different possible laws.  On this graph, the x-axis represents $p_0$ and the y-axis represents $p_1$.  In our model, the text of the law specifies the maximum fraction of each type of citizen that can be punished, $Cr(0)$ and $Cr(0)$, which occurs when $F=1$ and everyone is searched.  This region is represented by the outermost rectangle in the Figure, labeled A.
+Given a law $(C, S, F)$, let $p_0 = C(0)S(0)F$ be the fraction of the majority that are punished, and let $p_1 = C(1)S(1)F$ be the fraction of the minority that are punished.  We use Figure~\ref{fig:criminals} to plot these quantities for different possible laws.  On this graph, the x-axis represents $p_0$ and the y-axis represents $p_1$.  In our model, the text of the law specifies the maximum fraction of each type of citizen that can be punished, $C(0)$ and $C(0)$, which occurs when $F=1$ and everyone is searched.  This region is represented by the outermost rectangle in the Figure, labeled A.
+
+
+
+\begin{figure}[htbp]
+\begin{center}
+
 
 \begin{tikzpicture}[scale = 6]
 
        % x axis
 \draw [->] (0, 0) -- (1.1, 0) node [below right] {$p_0$};
-\draw [shift={(1.0, 0)}] (0,0.02) -- (0, -0.02) node[below] {$Cr(0)$};
+\draw [shift={(1.0, 0)}] (0,0.02) -- (0, -0.02) node[below] {$C(0)$};
 
        % y axis
 \draw [->] (0, 0) -- (0, 1.3) node [above left] {$p_1$};
-\draw [shift={(0, 1.2)}] (-0.02,0) -- (0.02,0) node[shift={(-0.8,0)}] {$Cr(1)$};
+\draw [shift={(0, 1.2)}] (-0.02,0) -- (0.02,0) node[shift={(-0.8,0)}] {$C(1)$};
 
 	%diagonal
 \draw [->,dashed] (-0.1, -0.1) -- (1.2, 1.1) node [above] {$B$};
@@ -116,12 +144,16 @@ Given a law $(Cr, S, F)$, let $p_0 = Cr(0)S(0)F$ be the fraction of the majority
 
 
 \end{tikzpicture}
+\caption{This figure shows the effects of privacy on divisive laws.}
+\label{fig:criminals}
+\end{center}
+\end{figure}
 
 
-Since more than half of the population is of type 0, a law may pass whenever the support of each type 0 individual is nonnegative.  We may compute support from individuals of type 0 as follows,
+Since more than half of the population is of type 0, a law may pass whenever the support of each type-0 individual is nonnegative.  We may compute support from individuals of type 0 as follows,
 
 \begin{align}
-L_1&(0) = n_0 a_{00}  L_0(0) + n_1 a_{01}  L_0(1) \\
+U_L(i)&(0) = n_0 a_{00}  V_L(0) + n_1 a_{01}  V_L(1) \\
 &= \beta t - n_0 a_{00}p_0 P - n_1 a_{01}  p_1 P \\
 &= \beta \left[ \frac{n_0 p_0}{n_0 + n_1}   + \frac{n_1 p_1}{n_0 + n_1} \right]  - n_0 a_{00}p_0 P - n_1 a_{01}  p_1 P \\
 &= \left[  \frac{\beta n_0}{n_0 + n_1} - n_0 a_{00}P  \right]p_0 + \left[ \frac{\beta n_1}{n_0 + n_1} -  n_1 a_{01}P \right] p_1
@@ -130,31 +162,31 @@ L_1&(0) = n_0 a_{00}  L_0(0) + n_1 a_{01}  L_0(1) \\
 Letting $b_{00} = \frac{\beta }{n_0 + n_1} -  a_{00}P $ and $b_{01} = \frac{\beta}{n_0 + n_1} -   a_{01}P $, we can write,
 
 \begin{align}
-L_1(0) = b_{00}n_0p_0 + b_{01} n_1p_1 
+U_L(0) = b_{00}n_0p_0 + b_{01} n_1p_1 
 \end{align}
 
 Our assumption that $a_{00} > a_{01}$ guarantees that $b_{00} < b_{01}$.  This means that there are 3 possibilities for the signs of the coefficients on $p_0$ and $p_1$.
 
 \begin{enumerate}
-\item $\partial L_1(0) / \partial p_0 \leq 0$ and $\partial L_1(0) / \partial p_1 \leq 0$.  This will happen whenever $\beta \leq   a_{01}P(n_0 + n_1)  $, meaning that the benefit from the law is small relative to the size of the punishment multiplied by the affinity of the majority for the minority.
-\item $\partial L_1(0) / \partial p_0 \leq 0$ and $\partial L_1(0) / \partial p_1 > 0$.  This will happen whenever $  a_{01}P(n_0 + n_1) < \beta  \leq a_{00}P(n_0 + n_1) $, or for intermediary amounts of benefit.  In this case, the majority will tend to support laws that punish the minority more and the majority less.
-\item $\partial L_1(0) / \partial p_0 > 0$ and $\partial L_1(0) / \partial p_1 > 0$.  This will happen whenever $   a_{00}P(n_0 + n_1) < \beta$, or for high amounts of benefit.  In this case, the majority will tend to support laws that punish both groups as much as possible.
+\item $\partial U_L(0) / \partial p_0 \leq 0$ and $\partial U_L(0) / \partial p_1 \leq 0$.  This will happen whenever $\beta \leq   a_{01}P(n_0 + n_1)  $, meaning that the benefit from the law is small relative to the size of the punishment multiplied by the affinity of the majority for the minority.
+\item $\partial U_L(0) / \partial p_0 \leq 0$ and $\partial U_L(0) / \partial p_1 > 0$.  This will happen whenever $  a_{01}P(n_0 + n_1) < \beta  \leq a_{00}P(n_0 + n_1) $, or for intermediary amounts of benefit.  In this case, the majority will tend to support laws that punish the minority more and the majority less.
+\item $\partial U_L(0) / \partial p_0 > 0$ and $\partial U_L(0) / \partial p_1 > 0$.  This will happen whenever $   a_{00}P(n_0 + n_1) < \beta$, or for high amounts of benefit.  In this case, the majority will tend to support laws that punish both groups as much as possible.
 \end{enumerate}
 
 The middle possibility, in which majority support increases with $p_1$ but decreases with $p_0$ is of particular interest, since this is the case in which the majority would favor the most divisive treatment of the two groups.
 
-A law will have majority support if and only if $L_1(0) \geq 0$.  This can be written as,
+A law will have majority support if and only if $U_L(0) \geq 0$.  This can be written as,
 
 \begin{align}
-L_1(0) = b_{00}n_0p_0 + b_{01} n_1p_1 \geq 0
+U_L(0) = b_{00}n_0p_0 + b_{01} n_1p_1 \geq 0
 \end{align}
 
-If condition 1 holds above, no law within rectangle A can have majority support, except for the origin.  This means that nobody will be punished and no benefit results.  If condition 3 holds above, every law within rectangle A has majority support, so a law may pass for any values of $S(0)$, $S(1)$, and $F$.  For the more interesting condition 2, the previous equation divides rectangle A into two regions.  This is depicted by line B in Figure \paul{blah}.  Every law that falls on this line or above can have majority support.
+If condition 1 holds above, no law within rectangle A can have majority support, except for the origin.  This means that nobody will be punished and no benefit results.  If condition 3 holds above, every law within rectangle A has majority support, so a law may pass for any values of $S(0)$, $S(1)$, and $F$.  For the more interesting condition 2, the previous equation divides rectangle A into two regions.  This is depicted by line B in Figure \ref{fig:criminals}.  Every law that falls on this line or above can have majority support.
 
 Using a similar argument to that above, we can derive the support of a type 1 citizen for the law to be
 
 \begin{align}
-L_1(1) =  b_{10} n_0p_0 + b_{11}n_1p_1
+U_L(1) =  b_{10} n_0p_0 + b_{11}n_1p_1
 \end{align}
 
 where $b_{10} = \frac{\beta}{n_0 + n_1} -   a_{10}P$ and $b_{11} = \frac{\beta }{n_0 + n_1} -  a_{11}P $ .  Since we assume $a_{10} < a_{11}$, we have $b_{10} > b_{11}$.
@@ -162,17 +194,17 @@ where $b_{10} = \frac{\beta}{n_0 + n_1} -   a_{10}P$ and $b_{11} = \frac{\beta }
 We compute divisiveness as the standard deviation,
 
 \begin{align}
-s_L &= \sqrt{var(L_1)}  =  \sqrt{E\left[ \left(L_1 - \bar{L} \right)^2 \right] }  \\
-&= \sqrt{ \frac{ n_0\left(L_1(0) - \bar{L}\right)^2 + n_1\left(L_1(1) - \bar{L} \right)^2 }{n_0+n_1}  }
+s_L &= \sqrt{var(U_L)}  =  \sqrt{E\left[ \left(U_L - \bar{U_L} \right)^2 \right] }  \\
+&= \sqrt{ \frac{ n_0\left(U_L(0) - \bar{U_L}\right)^2 + n_1\left(U_L(1) - \bar{U_L} \right)^2 }{n_0+n_1}  }
 \end{align}
 
-where $\bar{L} = \frac{n_0 L_1(0) + n_1L_1(1) }{n_0 + n_1}$ is the average support for the law.  After some algebra, this can be simplified to the following,
+where $\bar{U_L} = \frac{n_0 U_L(0) + n_1U_L(1) }{n_0 + n_1}$ is the average support for the law.  After some algebra, this can be simplified to the following,
 
 \begin{align}
-s_L &= \frac{\sqrt{n_0n_1}}{n_0 + n_1} \left| L_1(0) - L_1(1) \right|
+s_L &= \frac{\sqrt{n_0n_1}}{n_0 + n_1} \left| U_L(0) - U_L(1) \right|
 \end{align}
 
-In the region of laws that have majority support, it can be shows that $L_1(0) > L_1(1)$. Substituting for $L_1(0)$ and $L_1(1)$, we have
+In the region of laws that have majority support, it can be shows that $U_L(0) > U_L(1)$. Substituting for $U_L(0)$ and $U_L(1)$, we have
 
 \begin{align}
 s_L &= \frac{\sqrt{n_0n_1}}{n_0 + n_1} \left(  b_{00}n_0p_0 + b_{01} n_1p_1 - b_{10} n_0p_0 - b_{11}n_1p_1 \right) \\
@@ -189,30 +221,30 @@ by the ordering on our affinities, we know $a_{10} - a_{00}  < 0$ and $a_{11} - 
 
 In other words, in the region of laws with majority support, divisiveness goes up with the number of minority members punished and down with the number of minority members punished.  This means that the law most favored by the majority, which is in the upper left corner of rectangle A, is also the most divisive.
 
-\subsection{Effects of Attribute Privacy}
+\subsubsection{Effects of Attribute Privacy}
 
-Having outlined some basic properties of our model, we turn our attention to the effects of different types of privacy.  We begin with attribute privacy, which we understand to mean restrictions on S(0).  We model the extreme case of anonymity, represented as $S(0) = S(1)$.  The set of possible laws is represented by line C in Figure \paul{blah}.  Note that line C passes through the point $ \left(Cr(0), Cr(1) \right)$ at the upper right of rectangle A.  A more moderate version of attribute privacy may place bounds on the ratio of $S(1)$ to $S(0)$.  For example, we may specify,
+Having outlined some basic properties of our model, we turn our attention to the effects of different types of privacy.  We begin with attribute privacy, which we understand to mean restrictions on S(0).  We model the extreme case of anonymity, represented as $S(0) = S(1)$.  The set of possible laws is represented by line C in Figure \ref{fig:criminals}.  Note that line C passes through the point $ \left(C(0), C(1) \right)$ at the upper right of rectangle A.  A more moderate version of attribute privacy may place bounds on the ratio of $S(1)$ to $S(0)$.  For example, we may specify,
 
 \begin{align}
 0 < \underbar r < S(1) /S(0) < \bar r < \infty
 \end{align}
 
-Since divisiveness is maximized at the point $ \left(0, Cr(1) \right)$, attribute privacy necessarily reduces the maximum amount of divisiveness since it disallows laws at this point.  As the figure is depicted, the slope of line C is greater than the slope of line B,
+Since divisiveness is maximized at the point $ \left(0, C(1) \right)$, attribute privacy necessarily reduces the maximum amount of divisiveness since it disallows laws at this point.  As the figure is depicted, the slope of line C is greater than the slope of line B,
 
 \begin{align}
-Cr(1)/Cr(0) > - b_{00}n_0 / b_{01}n_1 
+C(1)/C(0) > - b_{00}n_0 / b_{01}n_1 
 \end{align}
 
 This means that any law that falls inside line C and rectangle A will also have majority support.  The majority would offer the most support to laws that fall further to the upper right of the line.  It is also possible, for the slope of line C to be less than the slope of line B,
 
 \begin{align}
-Cr(1)/Cr(0) > - b_{00}n_0 / b_{01}n_1 
+C(1)/C(0) > - b_{00}n_0 / b_{01}n_1 
 \end{align}
 
 In this case, no law on line C will have majority support except for a law at the origin.  Nevertheless, divisiveness decreases since having no law or a law at the origin brings divisiveness to zero.
 
 
-\subsection{Effects of Search Privacy}
+\subsubsection{Effects of Search Privacy}
 
 We interpret search privacy to mean that not all individuals who are searched while committing a crime are caught, 
 
@@ -220,9 +252,9 @@ We interpret search privacy to mean that not all individuals who are searched wh
 F<1
 \end{align}
 
-This condition limits the maximum number of people, of either type, who may be punished.  This is depicted by rectangle D in Figure \paul{blah}.  Like attribute privacy, search privacy reduces the maximum amount of divisiveness that can be caused by a law.  Specifically, the maximum divisiveness is reduced by a factor of F.  Unlike attribute privacy, search privacy never results in a scenario in which a previously enforced law can no longer have majority support.  As long as $S(0)$ and $S(1)$ are unchanged, reducing F still results in a law with majority support.  Divisiveness and welfare are simply scaled downwards.
+This condition limits the maximum number of people, of either type, who may be punished.  This is depicted by rectangle D in Figure \ref{fig:criminals}.  Like attribute privacy, search privacy reduces the maximum amount of divisiveness that can be caused by a law.  Specifically, the maximum divisiveness is reduced by a factor of F.  Unlike attribute privacy, search privacy never results in a scenario in which a previously enforced law can no longer have majority support.  As long as $S(0)$ and $S(1)$ are unchanged, reducing F still results in a law with majority support.  Divisiveness and welfare are simply scaled downwards.
 
-\subsection{Effects of Search Quantity Privacy}
+\subsubsection{Effects of Search Quantity Privacy}
 
 To model a policy of search quantity privacy, we impose the condition, 
 
@@ -230,32 +262,32 @@ To model a policy of search quantity privacy, we impose the condition,
 \frac{\sum_j S(i)}{n_0 + n_1} = \frac{n_0 S(0) + n_1 S(1)}{n_0 + n_1}  < m
 \end{align}
 
-The maximum value of $S(0)$ can be attained when $S(1) = 0$, allowing $S(0) = m (n_0 + n_1)/n_0$.  Similarly, when $S(0) = 0$, $S(1)$ can attain a value of $S(1) = m (n_0 + n_1)/n_1$.   Note that the maximum value of $S(0)$ is smaller than the maximum value of $S(1)$.  This feature is plotted as line E in Figure \paul{blah}.  Laws below this line are acceptable under the search quantity standard.  
+The maximum value of $S(0)$ can be attained when $S(1) = 0$, allowing $S(0) = m (n_0 + n_1)/n_0$.  Similarly, when $S(0) = 0$, $S(1)$ can attain a value of $S(1) = m (n_0 + n_1)/n_1$.   Note that the maximum value of $S(0)$ is smaller than the maximum value of $S(1)$.  This feature is plotted as line E in Figure \ref{fig:criminals}.  Laws below this line are acceptable under the search quantity standard.  
 
 As the figure demonstrates, search quantity privacy may reduce the maximum possible divisiveness of a law.  The majority will still favor a law that is at the top corner of the acceptable region, which represents the maximum amount of divisiveness for a given amount of searches.  If the bound $m$ is not set low enough, the maximum amount of divisiveness may not be reduced at all.
 
-\subsection{Effects of Search Specificity Privacy}
+\subsubsection{Effects of Search Specificity Privacy}
 
 Search Specificity Privacy requires a certain proportion of searches to turn up evidence that an individual is breaking the law.  We represent this by writing,
 
-$$\frac{\sum_i S(i)Cr(i)F}{\sum_i S(i)} = \frac{ n_0 S(0)Cr(0)F + n_1 S(1)Cr(1)F}{n_0 S(0) + n_1 S(1)}  > \rho$$
+$$\frac{\sum_i S(i)C(i)F}{\sum_i S(i)} = \frac{ n_0 S(0)C(0)F + n_1 S(1)C(1)F}{n_0 S(0) + n_1 S(1)}  > \rho$$
 
 Rearranging,
 
 \begin{align}
-\nonumber n_0 S(0)Cr(0)F + n_1 S(1)Cr(1)F &> \rho n_0 S(0) + \rho n_1 S(1) \\
-\nonumber  (n_1 Cr(1)F - \rho n_1 ) S(1) &>  - (n_0 Cr(0)F - \rho n_0 )S(0) \\
+\nonumber n_0 S(0)C(0)F + n_1 S(1)C(1)F &> \rho n_0 S(0) + \rho n_1 S(1) \\
+\nonumber  (n_1 C(1)F - \rho n_1 ) S(1) &>  - (n_0 C(0)F - \rho n_0 )S(0) \\
 \end{align}
 
 When $\rho$ is close enough to 0, the left hand side is nonnegative and the right hand side is nonpositive, so the constraint does not bind.  The set of possible laws is therefore not reduced.  On the other hand, when $\rho$ is close enough to 1, the left hand side is nonpositive and the right hand side is nonnegative, so the constraint binds unless $S(0) = S(1) = 0$.  No law can pass the privacy requirement except for the trivial one that doesn't punish anyone.  
 
-The more interesting region is when $rho$ lies between  $Cr(0)F$ and $Cr(1)F$.  In the case that $Cr(1) > Cr(0)$, meaning that the text of the law targets behavior that is more common for individuals of type 1, we can write the constraint as,
+The more interesting region is when $rho$ lies between  $C(0)F$ and $C(1)F$.  In the case that $C(1) > C(0)$, meaning that the text of the law targets behavior that is more common for individuals of type 1, we can write the constraint as,
 
 \begin{align}
-\frac{S(1)}{S(0)} &>  \frac{\rho n_0 - n_0 Cr(0)F }{n_1 Cr(1)F - \rho n_1}
+\frac{S(1)}{S(0)} &>  \frac{\rho n_0 - n_0 C(0)F }{n_1 C(1)F - \rho n_1}
 \end{align}
 
-where the fraction is arranged so that the numerator and denominator are positive.  This constraint is depicted by line F in Figure \paul{blah}.  Every law above this line is permitted under the search specificity rule.  Unfortunately, this rule does nothing to reduce the maximum possible divisiveness of a law.  In fact, it may have the opposite effect, allowing only laws for which members of the minority are much more likely to be searched than members of the majority.
+where the fraction is arranged so that the numerator and denominator are positive.  This constraint is depicted by line F in Figure \ref{fig:criminals}.  Every law above this line is permitted under the search specificity rule.  Unfortunately, this rule does nothing to reduce the maximum possible divisiveness of a law.  In fact, it may have the opposite effect, allowing only laws for which members of the minority are much more likely to be searched than members of the majority.
 
 In part, this conclusion may be the result of limitations of our model.  We have assumed that all members within a group have equal odds of breaking the law and equal odds of being searched.  A more detailed model might allow individuals to vary within each group.  Authorities may be able to select a smaller fraction of each group, choosing individuals with a higher probability of breaking the law, thereby increasing the proportion of searches that turn up evidence.  In such a model, search specificity privacy may be expected to limit the maximum divisiveness of a law.  Nevertheless, we believe that our central insight, that search specificity privacy limits searches on the majority more than on the minority, will continue to hold.
 
