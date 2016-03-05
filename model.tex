@@ -4,6 +4,88 @@
 \section{Model}
 \label{sec:model} 
 
+
+\begin{tikzpicture}[scale = 6]
+
+       % x axis
+\draw [->] (0, 0) -- (1.1, 0) node [below right] {$P_0$};
+\draw [shift={(1.0, 0)}] (0,0.02) -- (0, -0.02) node[below] {$Cr(0)$};
+
+       % y axis
+\draw [->] (0, 0) -- (0, 1.3) node [above left] {$P_1$};
+\draw [shift={(0, 1.2)}] (-0.02,0) -- (0.02,0) node[shift={(-0.8,0)}] {$Cr(1)$};
+
+	%diagonal
+\draw [->,dashed] (-0.1, -0.1) -- (1.2, 1.2) node [above] {$B$};
+
+	%right
+\draw [-,dashed] (1, 0) -- (1, 1.2);
+
+	%top
+\draw [-,dashed] (0, 1.2) -- (1, 1.2); 
+
+	%point A
+\draw[shift={(0.2, 1.2)}] node [above] {$A$};
+
+\end{tikzpicture}
+
+%
+%\usetikzlibrary{patterns}
+%
+%\newcommand{\myaxes}{
+%	\draw [->|] (0,0) node [left=1mm] {\scriptsize $$} -- node [rotate=90,above] {vertical label} (0,1.2) node [left=1mm,overlay] {\scriptsize $Cr(1)$};
+%	\draw [->|] (0,0) node [below=1mm] {\scriptsize $0$} -- node [below] {horizontal label} (1,0) node [below=1mm] {\scriptsize $Cr(0)$};
+%}
+%
+%\tikzstyle{full-protection}=[blue,pattern=north east lines,pattern color=blue];
+%\tikzstyle{full-self}=[orange,pattern=north west lines,pattern color=orange];
+%\tikzstyle{full-market}=[red,pattern=crosshatch dots,pattern color=red];
+%
+%\tikzstyle{partial-protection}=[blue,pattern=north east lines,pattern color=blue,opacity=.4];
+%\tikzstyle{partial-self}=[orange,pattern=north west lines,pattern color=orange,opacity=.4];
+%\tikzstyle{partial-market}=[red,pattern=crosshatch dots,pattern color=red,opacity=.4];
+%
+%\tikzstyle{partial-all}=[gray,pattern=grid,pattern color=gray,opacity=.4];
+%
+%\tikzstyle{passivity}=[dashed,thick];
+%\tikzstyle{special}=[red,thick];
+%
+%\begin{tikzpicture}
+%
+%	%	Legend
+%	
+%%	\draw [special] (0,-.5) rectangle ++(.25,.25) ++(0,-.125) node [right=2mm,black,opacity=1] {partial protection and full market insurance};
+%
+%	\draw [partial-self,line width=.8mm,dash pattern=on 1mm off 1mm] (-.2,-.875)--++(.6,0) node [right=0mm,black,opacity=1] {area 6};
+%	\draw [partial-market,line width=.8mm,dash pattern=on 1mm off 1mm] (.4,-.875)--++(-.6,0);
+%
+%	\draw [partial-protection,line width=.6mm] (-.2,-1.375)--++(.6,0) node [right=0mm,black,opacity=1] {area 5};
+%	
+%	\draw [partial-all] (0,-.5) rectangle ++(.25,.25) ++(0,-.125) node [right=2mm,black,opacity=1] {area 4};
+%	\draw [full-market] (0,0) rectangle ++(.25,.25) ++(0,-.125) node [right=2mm,black,opacity=1] {area 3};
+%	\draw [full-self] (0,.5) rectangle ++(.25,.25) ++(0,-.125) node [right=2mm,black,opacity=1] {area 2};
+%	\draw [full-protection] (0,1) rectangle ++(.25,.25) ++(0,-.125) node [right=2mm,black,opacity=1] {area 1};
+%\end{tikzpicture}
+%
+%\begin{tikzpicture}[>=stealth,scale=7]
+%
+%%	\draw [partial-all,draw=none] (.125,0) rectangle (1,.5);
+%%	\draw [full-self,draw=none] (0,0)--(0,.375)--(.625,.375)--(1,0)--(0,0);
+%%	\draw [full-protection,draw=none] (0,0) -- (.125,.125) -- (.125,1) -- (0,1) -- (0,0);
+%%	% \draw [full-market,draw=none] (.125,.5) rectangle (1,1);
+%%	\draw [full-market,draw=none] (0,.5) rectangle (1,1); % combined (1) and (5)
+%%	
+%%	\draw [partial-market,line width=.8mm,dash pattern=on 1mm off 1mm] (.5,.5) node [below,black] {\small FIX ME}--(1,.5);
+%%	\draw [partial-self,line width=.8mm,dash pattern=on 1mm off 1mm] (1,.5)--(.5,.5);
+%%	
+%%	\draw [partial-protection,line width=.6mm] (.125,.5)--(.125,1);
+%	
+%%	\draw [special] (0,0) -- (.5,.5) -- (0,.5) -- (0,0);
+%	\myaxes{}
+%\end{tikzpicture}
+
+
+
 Direct benefit
 
 Welfare might mean aggregated direct benefit
