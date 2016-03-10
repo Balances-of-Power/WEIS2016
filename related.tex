@@ -4,9 +4,23 @@
 \section{Related work}
 \label{sec:related}
 
-\subsection{Imbalances of Power}
-This work falls within a line of research that investigates imbalances of power between citizens and institutions, such as governments or corporations. In~\cite{laskowskigovernment}, we investigated the issue of government surveillance.  Our main takeaway was that increased surveillance technology increases incentives for abuse. In  \cite{johnsoncaviar}, we considered the welfare of consumers as a result of corporate exchanges of personal data.
-We found that when consumers are myopic, firms benefit greatly, but consumer surplus is also reduced. When we assume that consumers are strategic, a more complex picture emerges. Consumers are better off in this case, but firms fare worse.  Given that firms actually do in fact share consumer data in ways quite similar to our model, consumers cannot be acting strategically.  One might wonder, if a market for consumer data only exists when consumers are non-strategic, is the market exploiting consumers?  Our current work follows this line of investigation on power imbalances by considering the plight of minority groups targeted by unjust laws.
+\subsection{Privacy and Government}
+This work falls within a line of research that investigates the balance of power between citizens and the state. In~\cite{laskowskigovernment}, we investigated the application of surveillance technology by a government that wishes to remain in power.  Our main takeaway was that enhanced surveillance technology increases incentives for abuse. 
+
+In a similar vein, Goh provides a model of a government that may employ surveillance to lower the risk of a terrorist attack \cite{goh2015prosperity}.  Greater surveillance carries an increased risk that citizens will learn of its existence, which increases the risk that the government loses power.  Goh finds that a rational government will employ less surveillance when citizens value their privacy more, but autocratic governments will employ more surveillance than democratic ones.
+
+
+\subsection{Privacy and Firms}
+
+Privacy also affects the relationship between citizens and firms, and several strands of research provide insight to this topic.  Privacy can be seen in the classic literature on information economics as an information imbalance between a principal and an agent.  Moral hazard models assume that an agent's actions are not directly observable and the focus is on aligning incentives through contracting \cite{holmstrom1979moral}\cite{stiglitz1981credit}.  In models of adverse selection, agent types are private and certain types are driven out of a market because the principal cannot distinguish between them \cite{akerlof1995market}.  In signaling games, agents may engage in costly actions to signal their private type for economic gain \cite{spence1973job}.  None of these settings correspond to our focus on privacy as protecting a marginalized group.  Furthermore, models in this literature are usually neoclassical in the sense that privacy is an obstacle to maximizing welfare. 
+
+An emerging body of privacy research models the behavior of consumers that participate in two different markets in sequence.  Firms in one market learn about consumers based on their purchase decisions and may be allowed to sell this information to firms in the second market.
+
+In  \cite{johnsoncaviar}, we considered the welfare of consumers as a result of corporate exchanges of personal data.  We found that when consumers are myopic, firms benefit greatly, but consumer surplus is also reduced. When we assume that consumers are strategic, a more complex picture emerges. Consumers are better off in this case, but firms fare worse.  Given that firms actually do in fact share consumer data in ways quite similar to our model, consumers cannot be acting strategically.  One might wonder, if a market for consumer data only exists when consumers are non-strategic, is the market exploiting consumers?  Our current work follows this line of investigation on power imbalances by considering the plight of minority groups targeted by unjust laws.
+
+A final economic literature studies privacy through the lens of mechanism design.  Agents have hidden types and the revelation theorem motivates a focus on mechanisms in which agents report their type directly to the mechanism.  Recently, a set of papers have pioneered the use of differential privacy as a solution concept.  In these models, agents must be approximately truthful to the mechanism and cannot change the outcome by very much if they lie or refuse to participate.  Protecting privacy is not the focus of these models, since the solution concept begins with an assumption that agents don't hide information.
+
+In contrast to the studies we mention, our work distinguishes four distinct types of privacy, which are inspired by technologies and legal debate.  We further apply our model to explore the effects of privacy on divisive laws.
 
 \subsection{Polarization}
 Most voters in the United States have been and remain overwhelmingly moderate in their policy positions\cite{layman2006party}. Nevertheless, the United States Congress has passed a number of divisive laws, many of which have been challenged and overturned by the US Supreme Court.  Even in European countries, laws have been passed %xamples in European countries such as France, Belgium, and the Netherlands include laws passed 
@@ -63,11 +77,5 @@ We include this notion of influenced behavior in our model as a way to explain t
 \end{center}
 \end{figure}
 
-\subsection{Privacy}
 
-Multiple strands of economics bear on the topic of privacy.  Many important studies come from the classic literature on information economics.  Privacy in inherent in games of hidden information, including moral hazard, adverse selection, and signaling games, though none of these settings correspond to our setting in which privacy may be a factor in protecting a marginalized group.
-
-A second economic literature studies privacy through the lens of mechanism design.  Agents have hidden types and the revelation theorem motivates a focus on mechanisms in which agents report their type directly to the mechanism.  Recently, a set of papers have pioneered the use of differential privacy as a solution concept.  In these models, agents must be approximately truthful to the mechanism and cannot change the outcome by very much if they lie or refuse to participate.  Protecting privacy is not the focus of these models, since the solution concept begins with an assumption that agents don't hide information.
-
-In contrast to the studies we mention, our work distinguishes four distinct types of privacy, which are inspired by technologies and legal debate.  We further apply our model to explore the effects of privacy on divisive laws.
 
