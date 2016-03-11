@@ -109,7 +109,7 @@ Our model exhibits the following key features.
 
 %Want to talk about privacy.
 \subsection {Citizen Influence}
-For each pair of citizens $$i,j\in\{1,\dots N\},$$ define $$a_{ij}\in [0,1]$$ to be the influence of person $j$ on person $i$.  We sometimes refer to $a_{ij}$ also as the  , affinity of person $i$ to person $j$. 
+For each pair of citizens $$i,j\in\{1,\dots N\},$$ define $$a_{ij}\in [0,1]$$ to be the influence of person $j$ on person $i$.  We sometimes refer to $a_{ij}$ also as the affinity person $i$ has toward person $j$. 
 
 % into account when making decisions, or the extent to which person $j$ influences the decision of person $i$. 
 
@@ -118,7 +118,7 @@ To make a decision, each person aggregates their influences, so that for each $i
 \subsection{Citizen Valuations of Laws}
 Given a law $L$ and a citizen $j\in\{1,\dots N\}$, %define $$L(j)\in[0,1]$$ to be the probability that the law targets $j$.
 %Alternatively, 
-define $$V_L(j)\in\mathbb{R}$$ to be the direct impact of the law on person $j$. The direct  impact of $L$ is unbounded because laws may save a life or take away life from individuals impacted by them.
+define $$V_L(i)\in\mathbb{R}$$ to be the direct impact of the law on person $i$. The direct  impact of $L$ is unbounded because laws may save a life or take away life from individuals impacted by them.
 
 Certainly in many cases, an individual's direct valuation for a law is perfectly in tune with the perceived direct impact on the law.  In such cases, a person $i$'s continued support for $L$ might continue to be $V_L(i)$ indefinitely. % weight his or her own opinion so much above others that for all practical purposes we have $a_{ii}\approx 1$, $a_{ij}\approx 0$ for $j\neq i$, and the support of $i$ for $L$ is exactly $$a_{ii}L(i)=L(i).$$
 

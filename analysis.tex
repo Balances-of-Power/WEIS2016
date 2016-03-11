@@ -67,7 +67,7 @@ Laws that don't meet this requirement may be declared unenforceable.  Search Qua
 
 Another notion of privacy supposes that authorities must have individualized reasonable suspicion to conduct a search.  This is similar to the notion of Search Quantity Privacy, defined above, but the focus is not on the total proportion of searches with respect to a population, but rather on how well-targeted the searches are.  We may encode this notion of privacy by requiring that a certain fraction of searches result in the finding of evidence,
 \begin{align}
-\frac{\sum_i S(i)C(i)F}{\sum_i S(i)} > \rho
+\frac{\sum_j S(j)C(j)F}{\sum_j S(j)} > \rho
 \end{align}
 
 
@@ -79,7 +79,7 @@ To further explore issues of privacy, we will place additional structure on citi
 Within each group, we assume that all citizens share identical opinions regarding laws applied to their own group, and they also share identical opinions on laws applied to group outsiders. 
  %have identical influenced preferences.  That is, $U_L$ is constant in each group.  
 
-For example, one way for this to happen would be if the influence function $a_{ij}$ itself were constant within each of the four cases $i,j<n_0$, $i<n_0,j\geq n_0$, $i\geq n_0,j < n_0$, and $i,j\geq n_0$. In this case, regardless of any individual's initial valuation of a low, the end resulting support for the law would be a uniform  aggregate value from the group.  
+For example, one way for this to happen would be if the influence function $a_{ij}$ itself were constant within each of the four cases $i,j<n_0$; $i<n_0,j\geq n_0$; $i\geq n_0,j < n_0$; and $i,j\geq n_0$. In this case, regardless of any individual's initial valuation of a low, the end resulting support for the law would be a uniform  aggregate value from the group.  
 
 Note also that from a data-collection perspective, we would obtain the exact same valuations if instead we assumed that individuals in each of the four groups had independent valuations of Laws, but decided on their support for the law on the exclusive basis of an aggregation of valuations from exactly two individuals labeled $i=0$ and $j=1$.  Citizens aligned with both $i$ and $j$ would have one valuation.  Citizens aligned with $i$ but not $j$ would have another, and so forth.  In terms of eventual support of a law, this scenario is indistinguishable from the example above.
 
@@ -94,7 +94,7 @@ a_{00} > \frac{1}{N}=\frac{1}{n_0+n_1} > a_{01} \\
 a_{11} > \frac{1}{N}=\frac{1}{n_0+n_1}>  a_{10}
 \end{align}
 
-Given a law $(C, S, F)$, let $p_0 = C(0)S(0)F$ be the fraction of the majority that are punished, and let $p_1 = C(1)S(1)F$ be the fraction of the minority that are punished.  We use Figure~\ref{fig:criminals} to plot these quantities for different possible laws.  On this graph, the x-axis represents $p_0$ and the y-axis represents $p_1$.  In our model, the text of the law specifies the maximum fraction of each type of citizen that can be punished, $C(0)$ and $C(0)$, which occurs when $F=1$ and everyone is searched.  This region is represented by the outermost rectangle in the Figure, labeled A.
+Given a law $(C, S, F)$, let $p_0 = C(0)S(0)F$ be the fraction of the majority that are punished, and let $p_1 = C(1)S(1)F$ be the fraction of the minority that are punished.  We use Figure~\ref{fig:criminals} to plot these quantities for different possible laws.  On this graph, the x-axis represents $p_0$ and the y-axis represents $p_1$.  In our model, the text of the law specifies the maximum fraction of each type of citizen that can be punished, $C(0)$ and $C(1)$, which occurs when $F=1$ and everyone is searched.  This region is represented by the outermost rectangle in the Figure, labeled A.
 
 
 
@@ -259,7 +259,8 @@ This condition limits the maximum number of people, of either type, who may be p
 To model a policy of search quantity privacy, we impose the condition, 
 
 \begin{align}
-\frac{\sum_j S(i)}{n_0 + n_1} = \frac{n_0 S(0) + n_1 S(1)}{n_0 + n_1}  < m
+%\frac{\sum_j S(j)}{n_0 + n_1} = 
+\frac{n_0 S(0) + n_1 S(1)}{n_0 + n_1}  < m
 \end{align}
 
 The maximum value of $S(0)$ can be attained when $S(1) = 0$, allowing $S(0) = m (n_0 + n_1)/n_0$.  Similarly, when $S(0) = 0$, $S(1)$ can attain a value of $S(1) = m (n_0 + n_1)/n_1$.   Note that the maximum value of $S(0)$ is smaller than the maximum value of $S(1)$.  This feature is plotted as line E in Figure \ref{fig:criminals}.  Laws below this line are acceptable under the search quantity standard.  
@@ -270,7 +271,7 @@ As the figure demonstrates, search quantity privacy may reduce the maximum possi
 
 Search Specificity Privacy requires a certain proportion of searches to turn up evidence that an individual is breaking the law.  We represent this by writing,
 
-$$\frac{\sum_i S(i)C(i)F}{\sum_i S(i)} = \frac{ n_0 S(0)C(0)F + n_1 S(1)C(1)F}{n_0 S(0) + n_1 S(1)}  > \rho$$
+$$\frac{\sum_j S(j)C(j)F}{\sum_j S(j)} = \frac{ n_0 S(0)C(0)F + n_1 S(1)C(1)F}{n_0 S(0) + n_1 S(1)}  > \rho$$
 
 Rearranging,
 
